@@ -74,8 +74,9 @@
 						<div class = "c1">
 						<ul>
 							<!--Using HTML list to list ingredients in alphabetical order-->
-							<li><a href="#">Test1</a></li>
-							<li><a href="#">Test2</a></li>
+							{{for ingredient in ingredients}}
+							<li><a href="#">{{ingredient}}</a></li>
+							{{endfor}}
 							<br>
 
 							<form action = "/" method="post">

@@ -32,7 +32,6 @@ def get_recipes():
 	for (name, ingredients) in recipe_dict:
 		if compare_ingredients(db.get_ingredients(), ingredients):
 			possible_recipes.append((name, ingredients))
-<<<<<<< HEAD
         return possible_recipes
 		
 def print_recipes():
@@ -40,14 +39,12 @@ def print_recipes():
 
 def compare_ingredients(user_ingredients, recipe_ingredients):
 	return set(user_ingredients).issuperset(recipe_ingredients)
-=======
 	return possible_recipes
 		
 # compare_ingredients: LOI LOI -> Boolean
 # determines if a recipe can be created from user ingredients
 def compare_ingredients(user_ingredients, recipe_ingredients):
 	return (set(user_ingredients).issuperset(recipe_ingredients)):
->>>>>>> d30c640489cb8e1fbabe57111bb608bdd1352ab2
 
 # get_ingredients: -> LOI
 # return a List of the user's Ingredients
@@ -59,11 +56,7 @@ def get_ingredients():
 def render_page():
 	return template("index.html")
 
-<<<<<<< HEAD
-
 if __name__ == "__main__":
     run(host = 'localhost', port = 8080)
-=======
-# run 
-run(host = 'localhost', port = 8080)
->>>>>>> d30c640489cb8e1fbabe57111bb608bdd1352ab2
+
+# run(host = 'localhost', port = 8080)

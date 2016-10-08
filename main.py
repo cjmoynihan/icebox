@@ -19,13 +19,13 @@ def get_recipes():
 	for (name, ingredients) in recipe_dict:
 		if compare_ingredients(db.get_ingredients(), ingredients):
 			possible_recipes.append((name, ingredients))
+        return possible_recipes
 		
+def print_recipes():
+        return '\n'.join((name for (name, ingredients) in get_recipes()))
 
 def compare_ingredients(user_ingredients, recipe_ingredients):
-	if (set(user_ingredients).issuperset(recipe_ingredients):
-		return true
-	return false
-
+	return set(user_ingredients).issuperset(recipe_ingredients)
 
 def get_ingredients():
 	return db.get_ingredients()
@@ -35,4 +35,5 @@ def render_page():
 	return template("index.html")
 
 
-run(host = 'localhost', port = 8080)
+if __name__ == "__main__":
+    run(host = 'localhost', port = 8080)

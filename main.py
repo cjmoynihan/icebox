@@ -5,7 +5,7 @@ db = database.Database()
 
 # An Ingredient is a String
 # A List of Ingredients (LOI) is a (Ingredient, ...)
-# A Recipe is a (String, LOI)
+# A Recipe is a (String, LOI, String)
 # A List of Recipes is a (LOR) is a (Recipe, ...)
 
 
@@ -27,23 +27,21 @@ def remove_ingredient(ingredient):
 # get_recipes: -> LOR
 # finds recipes that can be created from the users ingredients
 def get_recipes():
-	recipe_dict = db.get_recipes()
+	recipe_list = db.get_recipes()
 	possible_recipes = []
-	for (name, ingredients) in recipe_dict:
-		if compare_ingredients(db.get_ingredients(), ingredients):
-			possible_recipes.append((name, ingredients))
-        return possible_recipes
+	for recipe in recipe_list:
+		if compare_ingredients(recipe.ingredients):
+			possible_recipes.append(recipe)
+    return possible_recipes
 		
 def print_recipes():
         return '\n'.join((name for (name, ingredients) in get_recipes()))
 
-def compare_ingredients(user_ingredients, recipe_ingredients):
-	return set(user_ingredients).issuperset(recipe_ingredients)
-	return possible_recipes
-		
 # compare_ingredients: LOI LOI -> Boolean
 # determines if a recipe can be created from user ingredients
-def compare_ingredients(user_ingredients, recipe_ingredients):
+def compare_ingredients(recipe_ingredients, user_ingredients=None):
+	if user_ingredients=None:
+		user_ingredients=db.get_ingredients()
 	return set(user_ingredients).issuperset(recipe_ingredients)
 
 # get_ingredients: -> LOI

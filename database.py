@@ -1,5 +1,11 @@
 import sqlite3 as sql3
 
+class Recipe():
+	def __init__(self, name, ingredients, instructions):
+		self.name=name
+		self.ingredients=ingredients
+		self.instructions=instructions
+
 class Database():
 	def __init__(self):
 		# Initialize the connection to the server
@@ -41,15 +47,10 @@ class Database():
 		return bool(self.c.fetchone()[0])
 
 	def get_recipes(self):
-		# Return a dictionary of recipes as {"recipe name":[recipe detail 1, recipe detail 2, ...], "recipe name":[...], ...}
+		# Return a list of recipe name, ingredients, instructions
 		self.c.execute("SELECT name, ingredients FROM recipes")
-		"""
-		[
-			("recipe name": [ingredient 1, ingredient 2, ...]),
-			("recipe name": [ingredient 1, ingredient 2, ...]),
-		]
-		"""
-		return [(name, [food.strip("'") for food in ingredients[1:-1].split(', ')]) for (name, ingredients) in self.c.fetchall()]
+		recipe_list = [Recipe(name, [food.strip("'") for food in ingredients[1:-1].split(', ')], instrutions) for (name, ingredients, instructions) in self.c.fetchall()]
+		return recipe_list
 
 	def add_recipe(self, recipe_name, ingredients):
 		# Add a recipe (name, ingredients as list) to recipes

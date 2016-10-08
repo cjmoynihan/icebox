@@ -2,6 +2,7 @@ from bottle import route, run, request, template, static_file, get, post
 import main
 
 # Static Routes
+# Redirects all files to the static folder
 @get('/<filename:re:.*\.js>')
 def javascripts(filename):
     return static_file(filename, root='static/js')
@@ -21,8 +22,9 @@ def fonts(filename):
 
 @route('/')
 def homepage():
-    return template('index.tpl', ingredients=main.get_ingredients())
+    return template('index.tpl', ingredients=main.get_ingredients(), recipes=tuple(main.get_recipes()))
 
+# Takes a POST and either adds or removes ingredients
 @route('/', method='POST')
 def modify_ingredient():
     modification=request.forms.get('modification')

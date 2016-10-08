@@ -191,15 +191,23 @@
 					<article id="main" class="container special">
 						<a href="#" class="image featured"><img src="pic06.jpg" alt="" /></a>
 						<header>
-							<h2><a href="#"></a>Recipe name</h2>
-							<p>
-								Ingredients:
-							</p>
+							
+							<h2><a href="#"></a>Recipes:</h2>
+							% for recipe in recipes:
+								</br>
+									<h2>{{ recipe.name.title() }}</h2>
+									Ingredients:
+									<ul style="list-style:circle;">
+									% for ingredient in recipe.ingredients:
+										<li> {{ ingredient }} </li>
+									% end
+									</ul>
+									</p>
+									% if recipe.instructions is not None:
+										<p> {{ recipe.instructions }} </p>
+									% end
+							% end
 						</header>
-						<p>
-							Instructions:
-
-						</p>
 						<footer>
 							<a href="#" class="button">Continue Reading</a>
 						</footer>

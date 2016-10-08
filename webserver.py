@@ -26,8 +26,13 @@ def homepage():
 @route('/', method='POST')
 def modify_ingredient():
     modification=request.forms.get('modification')
+<<<<<<< HEAD
+    ingredients=request.forms.getall('ingredients')
+    ingredients=[ingredient.strip() for ingredient in ingredients]
+=======
     ingredients=request.forms.get('ingredients')
     ingredients=[ingredient.strip() for ingredient in ingredients.split(', ')]
+>>>>>>> 233e728d45efb63cb5974de7e9d039782dd4dc7c
     if modification=="add":
         for ingredient in ingredients:
             main.add_ingredient(ingredient)
@@ -37,4 +42,8 @@ def modify_ingredient():
     return homepage()
 
 if __name__ == '__main__':
+<<<<<<< HEAD
+    run(host='127.0.0.1', port=8000, reloader=True, debug=True)
+=======
     run(host='127.0.0.1', port=8080, reloader=True, debug=True)
+>>>>>>> 233e728d45efb63cb5974de7e9d039782dd4dc7c

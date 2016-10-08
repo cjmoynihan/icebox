@@ -36,9 +36,7 @@ def get_recipes():
 # compare_ingredients: LOI LOI -> Boolean
 # determines if a recipe can be created from user ingredients
 def compare_ingredients(user_ingredients, recipe_ingredients):
-	if (set(user_ingredients).issuperset(recipe_ingredients)):
-		return true
-	return false
+	return (set(user_ingredients).issuperset(recipe_ingredients)):
 
 # get_ingredients: -> LOI
 # return a List of the user's Ingredients

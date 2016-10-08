@@ -32,7 +32,7 @@ def get_recipes():
 	for recipe in recipe_list:
 		if compare_ingredients(recipe.ingredients):
 			possible_recipes.append(recipe)
-    return possible_recipes
+        return possible_recipes
 		
 def print_recipes():
         return '\n'.join((name for (name, ingredients) in get_recipes()))
@@ -40,7 +40,7 @@ def print_recipes():
 # compare_ingredients: LOI LOI -> Boolean
 # determines if a recipe can be created from user ingredients
 def compare_ingredients(recipe_ingredients, user_ingredients=None):
-	if user_ingredients=None:
+	if user_ingredients==None:
 		user_ingredients=db.get_ingredients()
 	return set(user_ingredients).issuperset(recipe_ingredients)
 

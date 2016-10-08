@@ -2,7 +2,7 @@
 import requests
 from BeautifulSoup import BeautifulSoup
 import re
-from .. import database
+import database
 
 
 recipe_links=set()
@@ -10,11 +10,12 @@ recipe_links=set()
 baselink = "http://allrecipes.com/recipes"
 
 class Recipe():
-        def __init__(self, name, ingredients, instructions, description=None):
+        def __init__(self, name, ingredients, instructions, description=None, source_code=None):
                 self.name=name
                 self.ingredients=ingredients
                 self.instructions=instructions
                 self.description=description
+                self.source_code=source_code
 
         def __str__(self):
                 return "{0}: {1}".format(self.name, ', '.join(self.ingredients))
@@ -39,12 +40,16 @@ def get_info(recipe_link):
     r=requests.get(recipe_link)
     soup = BeautifulSoup(r.text)
     # Create ingredient list
-    ingredient_tags = set(soup.findAll('span', attrs={'itemprop': '"ingredients"'}))
+    ingredient_tags = set(soup.findAll('span', attrs={'itemprop': 'ingredients'}))
     ingredients = [ingredient.getText() for ingredient in ingredient_tags]
     # Get instructions
-    step_tags = set(soup.findAll('span', attrs={'class':'step'}))
+    step_tags = set(soup.findAll('li', attrs={'class':'step'}))
     steps = [step.getText() for step in step_tags if step.getText()]
-    return Recipe(recipe_name, ingredients, steps)
+    print "Adding recipe {0}\nwith ingredients: {1}\nand instructions: {2}".format(recipe_name, ingredients, steps)
+    print '-----------------'
+    print '-----------------'
+    print '-----------------'
+    return Recipe(recipe_name, ingredients, steps, source_code=r.text)
     
 
 if __name__ == "__main__":

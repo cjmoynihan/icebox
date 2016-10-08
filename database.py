@@ -21,7 +21,7 @@ class Database():
 	def check_tables(self):
 		# This function creates the tables and makes sure they all exist!
 		self.c.execute("CREATE TABLE IF NOT EXISTS user_ingredients (ingredient TEXT PRIMARY KEY)")
-		self.c.execute("CREATE TABLE IF NOT EXISTS recipes (id INTEGER PRIMARY KEY, name TEXT, ingredients TEXT, instructions TEXT)")
+		self.c.execute("CREATE TABLE IF NOT EXISTS recipes (id INTEGER PRIMARY KEY, name TEXT, ingredients TEXT, instructions TEXT, unique(name,ingredients,instructions))")
 		self.conn.commit()
 
 	def get_ingredients(self):
@@ -55,7 +55,7 @@ class Database():
 		recipe_list = [Recipe(name, [food.strip("'") for food in ingredients[1:-1].split(', ')], instructions) for (name, ingredients, instructions) in self.c.fetchall()]
 		return recipe_list
 
-	def add_recipe(self, recipe_name, ingredients):
+	def add_recipe(self, recipe_name, ingredients, instructions):
 		# Add a recipe (name, ingredients as list) to recipes
-		self.c.execute("INSERT INTO recipes(name, ingredients) VALUES(?,?)", (recipe_name, str(tuple(ingredients))))
+		self.c.execute("INSERT OR IGNORE INTO recipes(name, ingredients, instructions) VALUES(?,?,?)", (recipe_name, str(tuple(ingredients)), str(instructions)))
 		self.conn.commit()

@@ -42,7 +42,16 @@ def print_recipes():
 def compare_ingredients(recipe_ingredients, user_ingredients=None):
 	if user_ingredients==None:
 		user_ingredients=db.get_ingredients()
-	return set(user_ingredients).issuperset(recipe_ingredients)
+	flag = False
+	for recipe_ingredient in recipe_ingredients:
+		flag = False
+		for user_ingredient in user_ingredients:
+			if user_ingredient in recipe_ingredient:
+				flag = True
+		if flag == False:
+			break
+	return flag
+
 
 # get_ingredients: -> LOI
 # return a List of the user's Ingredients

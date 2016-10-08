@@ -2033,7 +2033,7 @@
 
 /* Post */
 
-	.post.stub {
+	.post.stub 2
 		text-align: center;
 	}
 
@@ -2150,17 +2150,33 @@
 			height: 3em;
 			line-height: 4.5em;
 			text-align: center;
-			font-size: 1.25em;
 			padding: 0;
 			margin-right: 0.5em;
 			margin-left: 0.5em;
 		}
 
-		#gotoingredients {
-			background-position: center;
+		#header #gotoingredients {
+			
 			background-attachment: fixed;
-			background-size: 0.02em 0.02em;
-			background-repeat: no-repeat;
+			background-image: url("fridgeclip2.png");
+			background-size: 4.0em 3.5em;
+			background-position: center center;
+		}
+
+		#gotorecipelist {
+			
+			background-attachment: fixed;
+			background-image: url("magnifyingGlassClip.png");
+			background-position: center center;
+			background-size: 5.3em 3.5em;
+		}
+
+		#gotoreceipt {
+			
+			background-attachment: fixed;
+			background-image: url("receiptClip.png");
+			background-position: center center;
+			background-size: 4.4em 3.5em;
 		}
 
 
@@ -2214,7 +2230,7 @@
 		opacity: 1;
 	}
 
-/* Nav */
+/* Nav 
 
 	#nav {
 		position: absolute;
@@ -2675,8 +2691,10 @@
 
 		/* Header */
 
+			
 			#header {
-				background-attachment: scroll;
+				background-attachment: fixed;
+
 			}
 
 				#header .inner {
@@ -2746,6 +2764,7 @@
 	#navPanel, #titleBar {
 		display: none;
 	}
+
 
 	@media screen and (max-width: 736px) {
 
@@ -2871,7 +2890,7 @@
 				transition: transform 0.5s ease;
 				padding-bottom: 1px;
 			}
-
+			/*
 			#navButton {
 				-moz-backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
@@ -3031,7 +3050,7 @@
 				-ms-transform: translateY(0);
 				transform: translateY(0);
 			}
-
+*/
 		/* Wrapper */
 
 			.wrapper {
@@ -3041,7 +3060,7 @@
 		/* Header */
 
 			#header {
-				background-attachment: scroll;
+				background-attachment: fixed;
 				padding: 2.5em 0 0 0;
 			}
 

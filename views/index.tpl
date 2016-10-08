@@ -22,18 +22,18 @@
 					<!-- Inner -->
 						<div class="inner">
 							<header>
-								<h1><a href="index.html" id="logo">ICEBOX</a></h1>
+								<h1><a href="index.tpl" id="logo">ICEBOX</a></h1>
 								<hr />
 								<p>Let's get cookin'</p>
 							</header>
 							<footer>
 								<a href="#banner" id = "gotoingredients" class="button circled scrolly"></a>
 								<a href="#recipelist" id = "gotorecipelist" class="button circled scrolly"></a>
-								<a href="#main" id = "gotoreceipt" class="button circled scrolly"></a>
+								<a href="#" id = "gotoreceipt" class="button circled scrolly"></a>
 							</footer>
 						</div>
 
-					<!-- Nav -->
+					<!-- Nav 
 						<nav id="nav">
 							<ul>
 								<li><a href="index.html">Home</a></li>
@@ -60,7 +60,7 @@
 								<li><a href="no-sidebar.html">No Sidebar</a></li>
 							</ul>
 						</nav>
-
+					-->
 				</div>
 
 			<!-- Banner -->
@@ -109,86 +109,15 @@
 				<section id = "recipelist" class="carousel">
 					<div class="reel">
 
+						% for recipe in recipes: 
 						<article>
 							<a href="#" class="image featured"><img src="pic01.jpg" alt="" /></a>
 							<header>
-								<h3><a href="#">Pulvinar sagittis congue</a></h3>
+								<h3><a href="#main">{{ name }}</a></h3>
 							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+							<p>{{ ingredients }}</p>
 						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="pic02.jpg" alt="" /></a>
-							<header>
-								<h3><a href="#">Fermentum sagittis proin</a></h3>
-							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="pic03.jpg" alt="" /></a>
-							<header>
-								<h3><a href="#">Sed quis rhoncus placerat</a></h3>
-							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="pic04.jpg" alt="" /></a>
-							<header>
-								<h3><a href="#">Ultrices urna sit lobortis</a></h3>
-							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="pic05.jpg" alt="" /></a>
-							<header>
-								<h3><a href="#">Varius magnis sollicitudin</a></h3>
-							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="pic01.jpg" alt="" /></a>
-							<header>
-								<h3><a href="#">Pulvinar sagittis congue</a></h3>
-							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="pic02.jpg" alt="" /></a>
-							<header>
-								<h3><a href="#">Fermentum sagittis proin</a></h3>
-							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="pic03.jpg" alt="" /></a>
-							<header>
-								<h3><a href="#">Sed quis rhoncus placerat</a></h3>
-							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="pic04.jpg" alt="" /></a>
-							<header>
-								<h3><a href="#">Ultrices urna sit lobortis</a></h3>
-							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-						</article>
-
-						<article>
-							<a href="#" class="image featured"><img src="pic05.jpg" alt="" /></a>
-							<header>
-								<h3><a href="#">Varius magnis sollicitudin</a></h3>
-							</header>
-							<p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
-						</article>
-
+						% end
 					</div>
 				</section>
 
@@ -215,9 +144,7 @@
 									% end
 							% end
 						</header>
-						<footer>
-							<a href="#" class="button">Continue Reading</a>
-						</footer>
+						
 					</article>
 
 				</div>

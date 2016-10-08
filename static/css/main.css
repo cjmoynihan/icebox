@@ -2096,7 +2096,9 @@
 
 	#header {
 		position: relative;
-		background-image: url("../../images/header.png");
+                background-image: url("header.png");
+	/*	background-image: url("../../images/header.png");
+        */
 		background-size: cover;
 		background-position: center center;
 		background-attachment: fixed;
@@ -2501,7 +2503,7 @@
 				position: absolute;
 				top: 50%;
 				margin: -1.5em 0 0 0;
-				background: url("images/arrow.svg") no-repeat center center;
+				background: url("arrow.svg") no-repeat center center;
 			}
 
 			.carousel .forward:hover:before, .carousel .backward:hover:before {
@@ -2906,7 +2908,7 @@
 					top: 0;
 					width: 100%;
 					height: 100%;
-					background: url("images/overlay.png");
+					background: url("overlay.png");
 					background-size: 128px 128px;
 				}
 

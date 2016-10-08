@@ -1,0 +1,4 @@
+index.html
+    Add and remove ingredients from the fridge
+    View items in fridge
+    View recipes for fridge on homepag

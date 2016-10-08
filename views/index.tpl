@@ -74,9 +74,23 @@
 						<div class = "c1">
 						<ul>
 							<!--Using HTML list to list ingredients in alphabetical order-->
+<<<<<<< HEAD
+							<form action = "/" method="post">
+							% for ingredient in ingredients:
+							
+							<li>{{ ingredient }}</li>
+								<input type="checkbox" value={{ingredient}} name="ingredients">
+								
+		
+							% end
+							<input type="hidden" value="remove" name="modification">
+							<input id = "removeButton" type="submit" value="Remove">
+							</form>
+=======
 							% for ingredient in ingredients:
 							<li><a href="#">{{ ingredient }}</a></li>
 							% end
+>>>>>>> 233e728d45efb63cb5974de7e9d039782dd4dc7c
 							<br>
 
 							<form action = "/" method="post">

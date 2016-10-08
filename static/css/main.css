@@ -2344,7 +2344,6 @@
 		background: #fff;
 		text-align: center;
 		padding: 4.5em 0 4.5em 0;
-		margin-bottom: 0;
 	}
 
 	#banner header > p {x
@@ -2374,14 +2373,27 @@
 		padding-bottom: 1px;
 		width: 100px;
 		display: inline-block;
-		margin-top: 10px;
 		margin-bottom: 10px;
+	}
+
+	#banner #addLabel{
+		margin:0 0 10px 0 ;
+		font-size: 18px;
 	}
 
 	#banner #addButton{
 		font-size:16px;
 		padding-top: 0px;
 		padding-bottom: 0px;
+		margin: 0 0 0 0;
+	}
+ 	#banner hr{
+ 		top: 1em;
+ 		margin-bottom: 3em;
+ 	}
+	#banner #removeLabel{
+		margin: 0 0 10px 0;
+		font-size: 18px;
 	}
 	#banner #removeButton{
 		font-size:16px;
@@ -2392,6 +2404,7 @@
 	}
 
 	.containIntAndCheckbox{
+		margin-top: 10px;
 		text-align: center;
 	}
 

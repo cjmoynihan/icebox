@@ -71,10 +71,21 @@
 						<p>
 							Add or remove food items from your fridge.
 						</p>
+					</header>
 						<ul>
 							<!--Using HTML list to list ingredients in alphabetical order-->
+							<body>
 							<div class = "addAndRemove">
+								<form action = "/" method="post">
+								<label id= "addLabel"><strong>Add ingredients:</strong></label>
+								<input id = "addTextBox" type="text" name="ingredients"><br>
+								<input type="hidden" value="add" name = "modification">
+								<input id = "addButton" type = "submit" value = "Add">
+								</form>
+								<hr>
+								<label id="removeLabel"><strong>Remove ingredients:</strong></label>
 							<div class = "containIntAndCheckbox">
+
 							<form action = "/" method="post">
 							% for ingredient in ingredients:
 							<input class = "checkbox" type="checkbox" value={{ingredient}} name="ingredients">
@@ -84,17 +95,12 @@
 							<input type="hidden" value="remove" name="modification">
 							<input id = "removeButton" type="submit" value="Remove">
 							</form>
-
-							<form action = "/" method="post">
-								<input id = "addTextBox" type="text" name="ingredients"><br>
-								<input type="hidden" value="add" name = "modification">
-								<label id= "addLabel">Add ingredients</label>
-								<input id = "addButton" type = "submit" value = "Add">
-							</form>
+							
+							
 							</div>
 						</ul>
-					</header>
-					<body>
+					
+					
 					<a href="#recipelist" id="gotorecipelist" class="button circled scrolly"></a>
 				</body>
 				</section>

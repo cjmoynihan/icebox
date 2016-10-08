@@ -32,6 +32,7 @@ def get_recipes():
 	for (name, ingredients) in recipe_dict:
 		if compare_ingredients(db.get_ingredients(), ingredients):
 			possible_recipes.append((name, ingredients))
+	return possible_recipes
 		
 # compare_ingredients: LOI LOI -> Boolean
 # determines if a recipe can be created from user ingredients

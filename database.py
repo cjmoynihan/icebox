@@ -6,6 +6,9 @@ class Recipe():
 		self.ingredients=ingredients
 		self.instructions=instructions
 
+	def __str__(self):
+		return "{0}: {1}".format(self.name, ', '.join(self.ingredients))
+
 class Database():
 	def __init__(self):
 		# Initialize the connection to the server
@@ -18,7 +21,7 @@ class Database():
 	def check_tables(self):
 		# This function creates the tables and makes sure they all exist!
 		self.c.execute("CREATE TABLE IF NOT EXISTS user_ingredients (ingredient TEXT PRIMARY KEY)")
-		self.c.execute("CREATE TABLE IF NOT EXISTS recipes (id INTEGER PRIMARY KEY, name TEXT, ingredients TEXT)")
+		self.c.execute("CREATE TABLE IF NOT EXISTS recipes (id INTEGER PRIMARY KEY, name TEXT, ingredients TEXT, instructions TEXT)")
 		self.conn.commit()
 
 	def get_ingredients(self):
@@ -48,8 +51,8 @@ class Database():
 
 	def get_recipes(self):
 		# Return a list of recipe name, ingredients, instructions
-		self.c.execute("SELECT name, ingredients FROM recipes")
-		recipe_list = [Recipe(name, [food.strip("'") for food in ingredients[1:-1].split(', ')], instrutions) for (name, ingredients, instructions) in self.c.fetchall()]
+		self.c.execute("SELECT name, ingredients, instructions FROM recipes")
+		recipe_list = [Recipe(name, [food.strip("'") for food in ingredients[1:-1].split(', ')], instructions) for (name, ingredients, instructions) in self.c.fetchall()]
 		return recipe_list
 
 	def add_recipe(self, recipe_name, ingredients):

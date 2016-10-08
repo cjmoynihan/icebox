@@ -27,9 +27,9 @@
 								<p>Let's get cookin'</p>
 							</header>
 							<footer>
-								<a href="#banner" class="button circled scrolly"></a>
-								<a href="#recipelist" class="button circled scrolly"></a>
-								<a href="#main" class="button circled scrolly"></a>
+								<a href="#banner" id = "gotoingredients" class="button circled scrolly"></a>
+								<a href="#recipelist" id = "gotorecipelist" class="button circled scrolly"></a>
+								<a href="#main" id = "gotoreceipt" class="button circled scrolly"></a>
 							</footer>
 						</div>
 
@@ -71,17 +71,16 @@
 						<p>
 							Add or remove food items from your fridge.
 						</p>
-						<div class = "c1">
 						<ul>
 							<!--Using HTML list to list ingredients in alphabetical order-->
+							<div class = "addAndRemove">
+							<div class = "containIntAndCheckbox">
 							<form action = "/" method="post">
 							% for ingredient in ingredients:
-							
-							<li>{{ ingredient }}</li>
-								<input type="checkbox" value={{ingredient}} name="ingredients">
-								
-		
+							<input class = "checkbox" type="checkbox" value={{ingredient}} name="ingredients">
+							<li class = "item">{{ ingredient }}</li><br>
 							% end
+							</div>
 							<input type="hidden" value="remove" name="modification">
 							<input id = "removeButton" type="submit" value="Remove">
 							</form>
@@ -89,13 +88,15 @@
 							<form action = "/" method="post">
 								<input id = "addTextBox" type="text" name="ingredients"><br>
 								<input type="hidden" value="add" name = "modification">
+								<label id= "addLabel">Add ingredients</label>
 								<input id = "addButton" type = "submit" value = "Add">
 							</form>
-
-							
+							</div>
 						</ul>
-						</div>
 					</header>
+					<body>
+					<a href="#recipelist" id="gotorecipelist" class="button circled scrolly"></a>
+				</body>
 				</section>
 
 			<!-- Carousel, where you display all the suitable recipes -->

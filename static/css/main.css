@@ -1619,10 +1619,10 @@
 		color: inherit;
 		border-bottom: solid 1px rgba(128, 128, 128, 0.15);
 		text-decoration: none;
-		-moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
-		-webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
-		-ms-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
-		transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+		-moz-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-bottom-color 0.15s ease-in-out;
+		-webkit-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-bottom-color 0.15s ease-in-out;
+		-ms-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-bottom-color 0.15s ease-in-out;
+		transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-bottom-color 0.15s ease-in-out;
 	}
 
 		a:hover {
@@ -2156,6 +2156,14 @@
 			margin-left: 0.5em;
 		}
 
+		#gotoingredients {
+			background-position: center;
+			background-attachment: fixed;
+			background-image: url("fridgeclip2.png");
+			background-size: 0.02em 0.02em;
+			background-repeat: no-repeat;
+		}
+
 
 		#header hr {
 			top: 1.5em;
@@ -2343,21 +2351,19 @@
 	#banner header > p {x
 		margin-bottom: 0;
 	}
-	#banner div.c1 li{
+	#banner .item{
 		border: #dcdcdc solid 2px;
 		border-radius: 5px;
-		text-align: left;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
 		margin-bottom: 3px;
 		padding-left: 3px;
 		font-size: 16px;
+		width: 100px;
+		display: inline-block;
 	}
-	#banner li a{
-		color: #000;
-	}
-
-	#banner li a:hover{
-		color: #a9a9a9;
-	}
+	
 
 	#banner #addTextBox{
 		border: #dcdcdc solid 2px;
@@ -2367,6 +2373,10 @@
 		font-size: 16px;
 		padding-top: 1px;
 		padding-bottom: 1px;
+		width: 100px;
+		display: inline-block;
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
 
 	#banner #addButton{
@@ -2374,8 +2384,36 @@
 		padding-top: 0px;
 		padding-bottom: 0px;
 	}
+	#banner #removeButton{
+		font-size:16px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
 
+	.containIntAndCheckbox{
+		text-align: center;
+	}
 
+	.checkbox{
+		display: inline-block;
+	}
+
+	#banner #gotorecipelist{
+		display: inline-block;
+			border-radius: 100%;
+			width: 4em;
+			height: 4em;
+			line-height: 4.5em;
+			text-align: center;
+			font-size: 1.25em;
+			padding: 0;
+			margin-right: 0.5em;
+			margin-left: 0.5em;
+			margin-top: 1.5em;
+	}
+			
 /* Content */
 
 	#content > hr {

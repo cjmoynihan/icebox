@@ -85,10 +85,6 @@
 							<input type="hidden" value="remove" name="modification">
 							<input id = "removeButton" type="submit" value="Remove">
 							</form>
-							% for ingredient in ingredients:
-							<li><a href="#">{{ ingredient }}</a></li>
-							% end
-							<br>
 
 							<form action = "/" method="post">
 								<input id = "addTextBox" type="text" name="ingredients"><br>

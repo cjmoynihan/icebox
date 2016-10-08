@@ -27,9 +27,9 @@
 								<p>Let's get cookin'</p>
 							</header>
 							<footer>
-								<a href="#banner" class="button circled scrolly"></a>
-								<a href="#recipelist" class="button circled scrolly"></a>
-								<a href="#main" class="button circled scrolly"></a>
+								<a href="#banner" id = "gotoingredients" class="button circled scrolly"></a>
+								<a href="#recipelist" id = "gotorecipelist" class="button circled scrolly"></a>
+								<a href="#main" id = "gotoreceipt" class="button circled scrolly"></a>
 							</footer>
 						</div>
 
@@ -71,31 +71,38 @@
 						<p>
 							Add or remove food items from your fridge.
 						</p>
-						<div class = "c1">
+					</header>
 						<ul>
 							<!--Using HTML list to list ingredients in alphabetical order-->
-							<form action = "/" method="post">
-							% for ingredient in ingredients:
-							
-							<li>{{ ingredient }}</li>
-								<input type="checkbox" value={{ingredient}} name="ingredients">
-								
-		
-							% end
-							<input type="hidden" value="remove" name="modification">
-							<input id = "removeButton" type="submit" value="Remove">
-							</form>
-
-							<form action = "/" method="post">
+							<body>
+							<div class = "addAndRemove">
+								<form action = "/" method="post">
+								<label id= "addLabel"><strong>Add ingredients:</strong></label>
 								<input id = "addTextBox" type="text" name="ingredients"><br>
 								<input type="hidden" value="add" name = "modification">
 								<input id = "addButton" type = "submit" value = "Add">
-							</form>
+								</form>
+								<hr>
+								<label id="removeLabel"><strong>Remove ingredients:</strong></label>
+							<div class = "containIntAndCheckbox">
 
+							<form action = "/" method="post">
+							% for ingredient in ingredients:
+							<input class = "checkbox" type="checkbox" value={{ingredient}} name="ingredients">
+							<li class = "item">{{ ingredient }}</li><br>
+							% end
+							</div>
+							<input type="hidden" value="remove" name="modification">
+							<input id = "removeButton" type="submit" value="Remove">
+							</form>
 							
+							
+							</div>
 						</ul>
-						</div>
-					</header>
+					
+					
+					<a href="#recipelist" id="gotorecipelist" class="button circled scrolly"></a>
+				</body>
 				</section>
 
 			<!-- Carousel, where you display all the suitable recipes -->

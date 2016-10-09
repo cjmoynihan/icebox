@@ -22,6 +22,7 @@ class Database():
 		# This function creates the tables and makes sure they all exist!
 		self.c.execute("CREATE TABLE IF NOT EXISTS user_ingredients (ingredient TEXT PRIMARY KEY)")
 		self.c.execute("CREATE TABLE IF NOT EXISTS recipes (id INTEGER PRIMARY KEY, name TEXT, ingredients TEXT, instructions TEXT, unique(name,ingredients,instructions))")
+                self.c.execute("CREATE TABLE IF NOT EXISTS links (url TEXT PRIMARY KEY)")
 		self.conn.commit()
 
 	def get_ingredients(self):
@@ -59,3 +60,11 @@ class Database():
 		# Add a recipe (name, ingredients as list) to recipes
 		self.c.execute("INSERT OR IGNORE INTO recipes(name, ingredients, instructions) VALUES(?,?,?)", (recipe_name, str(tuple((ingredient.replace(',', '') for ingredient in ingredients))), str(instructions)))
 		self.conn.commit()
+
+        def add_link(self, link):
+            self.c.execute("INSERT OR IGNORE INTO links(url) VALUES(?)", (link,))
+            self.conn.commit()
+
+        def get_links(self):
+            self.c.execute("SELECT * FROM links")
+            return set([row[0] for row in self.c.fetchall()])

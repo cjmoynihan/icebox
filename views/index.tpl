@@ -115,7 +115,7 @@
 							<header>
 								<h3><a href="#main">{{ recipe.name }}</a></h3>
 							</header>
-							<p>{{ ', '.join((ingredient.strip("u'") for ingredient in recipe.ingredients)) }}</p>
+							<p>{{ recipe.ingredients }}</p>
 						</article>
 						% end
 					</div>
@@ -140,7 +140,9 @@
 									</ul>
 									</p>
 									% if recipe.instructions is not None:
-										<p> {{ recipe.instructions }} </p>
+                                                                            % for instruction in recipe.instructions:
+										<p> {{ instruction }} </p>
+                                                                            % end
 									% end
 							% end
 						</header>

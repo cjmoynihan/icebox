@@ -1,5 +1,6 @@
 from bottle import route, run, request, template, static_file, get, post
 import main
+from database import Recipe
 
 image_paths = {
     "pancake":"pancake.jpg",
@@ -32,7 +33,9 @@ def fonts(filename):
 
 @route('/')
 def homepage():
-    return template('index.tpl', ingredients=main.get_ingredients(), recipes=tuple(main.get_recipes()), get_path=get_path)
+    recipes = main.get_recipes()
+    recipes = [Recipe(recipe.name, (ingredient.strip("u'") for ingredient in recipe.ingredients), [instruction.strip("u'").strip("[u'").strip("']") for instruction in recipe.instructions.split(', ')]) for recipe in recipes]
+    return template('index.tpl', ingredients=main.get_ingredients(), recipes=tuple(recipes), get_path=get_path)
 
 # Takes a POST and either adds or removes ingredients
 @route('/', method='POST')

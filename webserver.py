@@ -1,10 +1,13 @@
 from bottle import route, run, request, template, static_file, get, post
 import main
 from database import Recipe
+foods=('bread','muffin','pudding','squash')
 
 image_paths = {
-"apple pie" : "applePie.jpg" , "cheese burger" : "cheeseBurger.jpg" , "crepes" : "crepes.jpg" , "egg" : "egg.jpg" , "french fries" : "frenchFries.jpg" , "hamburger" : "hamBurger.jpg" , "ham sandwich" : "hamSandwich.jpg" , "kimchi" : "kimchi.jpg" , "mashed potatoes" : "mashedPotatoes.jpg" , "omelette" : "omelette.jpg" , "pancake" : "pancake.jpg" , "pizza" : "pizza.png" , "steak" : "steak.jpg" , "sushi" : "sushi.jpg" , "yogurt parfait" : "yogurtParfait.jpg","pancake":"pancake.jpg", "chicken" : "bakedChicken.jpg" , "beef stroganoff" : "beefStroganoff.jpg" , "blueberry pie" : "blueberrypie.jpg" , "chicken and dumplings" : "chickenandDumplings.jpg" , "chicken spaghetti" : "chickenSpaghetti.jpg" , "cinnamon buns" : "cinnamonBuns.jpg" , "cheese ball" : "cheeseBall.jpg" , "cupcake" : "cupcake.jpg" , "pork chop" : "porkChop.jpg" , "pork loin" : "porkLoin.jpg" , "pot roast" : "potRoast.jpg" , "pumpkin cheesecake" : "pumpkinCheesecake.jpg" , "salmon" : "salmon.jpg" , "shrimp dip" : "shrimpDip.jpg" , "shrimp scampi" : "shrimpScampi.jpg" , "tofu" : "tofu.jpg"
+"apple pie" : "applePie.jpg" , "cheese burger" : "cheeseBurger.jpg" , "crepes" : "crepes.jpg" , "egg" : "egg.jpg" , "french fries" : "frenchFries.jpg" , "hamburger" : "hamBurger.jpg" , "ham sandwich" : "hamSandwich.jpg" , "kimchi" : "kimchi.jpg" , "mashed potatoes" : "mashedPotatoes.jpg" , "omelette" : "omelette.jpg" , "pancake" : "pancake.jpg" , "pizza" : "pizza.png" , "steak" : "steak.jpg" , "sushi" : "sushi.jpg" , "yogurt parfait" : "yogurtParfait.jpg","pancake":"pancake.jpg", "chicken" : "bakedChicken.jpg" , "beef stroganoff" : "beefStroganoff.jpg" , "blueberry pie" : "blueberrypie.jpg" , "chicken and dumplings" : "chickenandDumplings.jpg" , "chicken spaghetti" : "chickenSpaghetti.jpg" , "cinnamon buns" : "cinnamonBuns.jpg" , "cheese ball" : "cheeseBall.jpg" , "cupcake" : "cupcake.jpg" , "pork chop" : "porkChop.jpg" , "pork loin" : "porkLoin.jpg" , "pot roast" : "potRoast.jpg" , "pumpkin cheesecake" : "pumpkinCheesecake.jpg" , "salmon" : "salmon.jpg" , "shrimp dip" : "shrimpDip.jpg" , "shrimp scampi" : "shrimpScampi.jpg" , "tofu" : "tofu.jpg",
 }
+for food in foods:
+    image_paths[food]=food+'.jpg'
 
 def get_path(recipe_name):
     for (food, path) in image_paths.iteritems():

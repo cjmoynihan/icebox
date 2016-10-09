@@ -1,5 +1,6 @@
 import sys
 import os
+from operator import itemgetter
 from PIL import Image, ImageEnhance, ImageFilter
 from clarifai import rest
 from clarifai.rest import ClarifaiApp
@@ -61,8 +62,8 @@ thresh = cv2.adaptiveThreshold(blur,255,1,1,11,2)
 
 _, contours,hierarchy = cv2.findContours(thresh,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 
-keys = [i for i in range(48,58)]
-imagelist = list()
+#keys = [i for i in range(48,58)]
+coordlist = list()
 
 for cnt in contours:
     if cv2.contourArea(cnt)>25:
@@ -72,7 +73,13 @@ for cnt in contours:
             cv2.rectangle(im,(x,y),(x+w,y+h),(0,0,255),2)
             roi = thresh[y:y+h,x:x+w]
             roismall = cv2.resize(roi,(10,10))
-            imagelist.append(image.crop((x, y, x + w, y + h)))
+            coordlist.append((x, y, x + w, y + h))
+coordlist = sorted(coordlist, key=itemgetter(0))
+coordlist = sorted(coordlist, key=itemgetter(1))
+imagelist = list()
+for coord in coordlist:
+    imagelist.append(image.crop(coord))
+
 
 count = 1
 for imgs in imagelist:

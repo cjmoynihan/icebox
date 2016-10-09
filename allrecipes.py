@@ -55,7 +55,7 @@ def process_links(baselink):
     for link in mod_links.difference(db.get_links()):
         print "Adding link " + link
         # If the link is a photo (just a picture of a recipe) skip it
-        if link.strip('/'.split('/')[-2]=="photos":
+        if link.strip('/').split('/')[-2]=="photos":
             db.add_link(link)
             continue
         recipe = get_info(link)

@@ -81,3 +81,7 @@ class Database():
                 )
             """)
             self.conn.commit()
+
+	def clear_ingredients(self):
+	    self.c.execute("DELETE FROM user_ingredients")
+	    self.conn.commit()

@@ -48,7 +48,7 @@ def modify_ingredient():
                 for i in [i.strip() for i in ingredient.split(',')]:
                     main.add_ingredient(i)
             else:
-                main.add_ingredient(ingredient)
+                main.add_ingredient(ingredient.strip())
     if modification=="remove":
         for ingredient in ingredients:
             main.remove_ingredient(ingredient)

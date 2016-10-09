@@ -153,37 +153,21 @@
 			<!-- Footer -->
 				<div id="footer">
 					<div class="container">
-						<div class="row">
-
-
-						</div>
-
-						<header id="footer_logo">
-							<p>Icebox</p>
-							<p id="ournames">CJ Moynihan</p>
-							<p id="ournames">Daniel Chen</p>
-							<p id="ournames">Naeema Ahmed</p>
-							<p id="ournames">Ellen Lo</p>
+						<header >
+							<label id="footer_logo">Icebox</label><br>
+							<label id="ournames">CJ Moynihan</label><br>
+							<label id="ournames">Daniel Chen</label><br>
+							<label id="ournames">Naeema Ahmed</label><br>
+							<label id="ournames">Ellen Lo</label>
 
 						</header>
 						<hr />
-						<div class="row">
-							<div class="12u">
-
-
-								
-
-								<!-- Copyright -->
-									<div class="copyright">
-										<ul class="menu">
-											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-										</ul>
-									</div>
-
+						<!-- Copyright -->
+							<div class="copyright">
+								<ul class="menu">
+									<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								</ul>
 							</div>
-
-						</div>
-
 					</div>
 				</div>
 

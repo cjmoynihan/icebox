@@ -4,10 +4,8 @@ from BeautifulSoup import BeautifulSoup
 import re
 import database
 
-
-recipe_links=set()
-
-baselink = "http://allrecipes.com/recipes"
+homepage = "http://allrecipes.com/recipes"
+db = database.Database()
 
 class Recipe():
         def __init__(self, name, ingredients, instructions, description=None, source_code=None):
@@ -50,11 +48,15 @@ def get_info(recipe_link):
     print '-----------------'
     print '-----------------'
     return Recipe(recipe_name, ingredients, steps, source_code=r.text)
+
+def process_links(baselink, link_list):
+    mod_links=set(get_recipe_links(baselink))
+    for link in mod_links.difference(link_list):
+        link_list.add(link)
+        recipe = get_info(link)
+        db.add_recipe(recipe.name, recipe.ingredients, recipe.instructions)
+        process_links(link, link_list)
     
 
 if __name__ == "__main__":
-    mod_links=get_recipe_links(baselink)
-    recipes = [get_info(link) for link in mod_links]
-    db = database.Database()
-    for recipe in recipes:
-        db.add_recipe(recipe.name, recipe.ingredients, recipe.instructions)
+    process_links(homepage, set([homepage]))

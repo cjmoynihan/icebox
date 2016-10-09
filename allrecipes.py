@@ -3,6 +3,7 @@ import requests
 from BeautifulSoup import BeautifulSoup
 import re
 import database
+import sys
 
 homepage = "http://allrecipes.com/recipes"
 db = database.Database()
@@ -43,20 +44,24 @@ def get_info(recipe_link):
     # Get instructions
     step_tags = set(soup.findAll('li', attrs={'class':'step'}))
     steps = [step.getText() for step in step_tags if step.getText()]
-    print "Adding recipe {0}\nwith ingredients: {1}\nand instructions: {2}".format(recipe_name, ingredients, steps)
-    print '-----------------'
-    print '-----------------'
-    print '-----------------'
+#     print "Adding recipe {0}\nwith ingredients: {1}\nand instructions: {2}".format(recipe_name, ingredients, steps)
+#     print '-----------------'
+#     print '-----------------'
+#     print '-----------------'
     return Recipe(recipe_name, ingredients, steps, source_code=r.text)
 
-def process_links(baselink, link_list):
+def process_links(baselink):
     mod_links=set(get_recipe_links(baselink))
-    for link in mod_links.difference(link_list):
-        link_list.add(link)
+    for link in mod_links.difference(db.get_links()):
+        print "Adding link " + link
         recipe = get_info(link)
-        db.add_recipe(recipe.name, recipe.ingredients, recipe.instructions)
-        process_links(link, link_list)
-    
+        if recipe.instructions==[""] or recipe.instructions=="" or recipe.instructions=="[]" or recipe.instructions=="['']":
+            pass
+        else:
+            db.add_recipe(recipe.name, recipe.ingredients, recipe.instructions)
+        db.add_link(link)
+        process_links(link)
 
 if __name__ == "__main__":
-    process_links(homepage, set([homepage]))
+    sys.setrecursionlimit(3000)
+    process_links(homepage)

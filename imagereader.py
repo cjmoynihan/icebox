@@ -2,7 +2,7 @@ import os
 from PIL import Image, ImageEnhance, ImageFilter
 import pytesseract
 
-def receipt_to_text(filename)
+def receipt_to_text(filename):
 	path = filename
 	img = Image.open(path)
 	img = img.convert('RGBA')
@@ -15,13 +15,15 @@ def receipt_to_text(filename)
 			else:
 				pix[x, y] = (255, 255, 255, 255)
 	img.save('temp.jpg')
-	im = Image.open("temp3.jpg")
+	im = Image.open("temp.jpg")
 	im = im.filter(ImageFilter.MedianFilter())
 	enhancer = ImageEnhance.Contrast(im)
 	im = enhancer.enhance(2)
 	im = im.convert('1')
 	im.save('temp.jpg')
 
-	text = pytesseract.image_to_string(Image.open('temp4.jpg'))
+	text = pytesseract.image_to_string(Image.open('temp.jpg'))
 	os.remove('temp.jpg')
-	print(text)
+	text = ''.join([i for i in text if not i.isdigit()])
+	text = text.splitlines()
+	return text

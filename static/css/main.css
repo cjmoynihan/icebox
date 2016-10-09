@@ -2253,7 +2253,7 @@
 		margin-bottom: 3px;
 		padding-left: 3px;
 		font-size: 16px;
-		width: 100px;
+		width: 180px;
 		display: inline-block;
 	}
 	
@@ -2506,6 +2506,7 @@
 		.carousel article {
 			display: inline-block;
 			width: 18em;
+			height:36em;
 			background: #fff;
 			text-align: center;
 			padding: 0 1em 3em 1em;

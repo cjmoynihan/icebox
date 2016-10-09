@@ -109,13 +109,28 @@
 				<section id = "recipelist" class="carousel">
 					<div class="reel">
 
-						% for recipe in recipes: 
+						% for recipe in recipes[::2]: 
 						<article>
 							<a href="#" class="image featured"><img src={{ get_path(recipe.name) }} alt="" /></a>
 							<header>
 								<h3><a href="#main">{{ recipe.name }}</a></h3>
 							</header>
-							<p>{{ recipe.ingredients }}</p>
+							<p>{{ ', '.join(recipe.ingredients) }}</p>
+						</article>
+						% end
+					</div>
+				</section>
+
+				<section id = "recipelist" class="carousel">
+					<div class="reel">
+
+						% for recipe in recipes[1::2]: 
+						<article>
+							<a href="#" class="image featured"><img src={{ get_path(recipe.name) }} alt="" /></a>
+							<header>
+								<h3><a href="#main">{{ recipe.name }}</a></h3>
+							</header>
+							<p>{{ ', '.join(recipe.ingredients) }}</p>
 						</article>
 						% end
 					</div>
@@ -140,9 +155,7 @@
 									</ul>
 									</p>
 									% if recipe.instructions is not None:
-                                                                            % for instruction in recipe.instructions:
-										<p> {{ instruction }} </p>
-                                                                            % end
+										<p> {{ ' '.join(recipe.instructions )}}</p>
 									% end
 							% end
 						</header>

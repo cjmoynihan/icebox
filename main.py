@@ -59,8 +59,8 @@ def compare_ingredients(recipe_ingredients, user_ingredients=None):
 def get_ingredients():
 	return db.get_ingredients()
 
-def receipt-to-text(filename):
-	return imagereader.receipt-to-text(filename)
+def receipt_to_text(filename):
+	return imagereader.receipt_to_text(filename)
 	    
 # render main html file
 @route('/index/')

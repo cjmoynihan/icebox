@@ -68,3 +68,16 @@ class Database():
         def get_links(self):
             self.c.execute("SELECT * FROM links")
             return set([row[0] for row in self.c.fetchall()])
+
+        def __fix_multiples(self):
+            # Goes into recipes table and removes entries with identical entries
+            print len(self.get_recipes())
+            self.c.execute("""
+                DELETE FROM recipes
+                WHERE id not in (
+                    SELECT min(id)
+                    FROM recipes
+                    group by name
+                )
+            """)
+            self.conn.commit()

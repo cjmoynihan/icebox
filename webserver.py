@@ -62,4 +62,4 @@ def modify_ingredient():
 
 
 if __name__ == '__main__':
-    run(host='0.0.0.0', port=80)
+    run(host='0.0.0.0', port=80, reloader=True)

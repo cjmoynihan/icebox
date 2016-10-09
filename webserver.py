@@ -1,6 +1,16 @@
 from bottle import route, run, request, template, static_file, get, post
 import main
 
+image_paths = {
+    "pancake":"pancake.jpg"
+}
+
+def get_path(recipe_name):
+    for (food, path) in image_paths.iteritems():
+        if food in recipe_name:
+            return path
+    return "generic_img.jpg"
+
 # Static Routes
 # Redirects all files to the static folder
 @get('/<filename:re:.*\.js>')
@@ -22,7 +32,7 @@ def fonts(filename):
 
 @route('/')
 def homepage():
-    return template('index.tpl', ingredients=main.get_ingredients(), recipes=tuple(main.get_recipes()))
+    return template('index.tpl', ingredients=main.get_ingredients(), recipes=tuple(main.get_recipes()), get_path=get_path)
 
 # Takes a POST and either adds or removes ingredients
 @route('/', method='POST')

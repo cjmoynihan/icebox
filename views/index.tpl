@@ -111,7 +111,7 @@
 
 						% for recipe in recipes: 
 						<article>
-							<a href="#" class="image featured"><img src="pic01.jpg" alt="" /></a>
+							<a href="#" class="image featured"><img src={{ get_path(recipe.name) }} alt="" /></a>
 							<header>
 								<h3><a href="#main">{{ recipe.name }}</a></h3>
 							</header>

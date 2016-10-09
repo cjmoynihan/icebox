@@ -80,7 +80,7 @@ imagelist = list()
 for coord in coordlist:
     imagelist.append(image.crop(coord))
 
-
+#
 count = 1
 for imgs in imagelist:
     imgs.save('%i.jpg' %count)

@@ -115,7 +115,7 @@
 							<header>
 								<h3><a href="#main">{{ recipe.name }}</a></h3>
 							</header>
-							<p>{{ ', '.join(recipe.ingredients) }}</p>
+							<p>{{ ', '.join((ingredient.strip("u'") for ingredient in recipe.ingredients)) }}</p>
 						</article>
 						% end
 					</div>

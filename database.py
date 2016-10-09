@@ -31,7 +31,7 @@ class Database():
 
 	def add_ingredient(self, ingredient):
 		# Adds ingredient to sql table
-		self.c.execute("INSERT OR IGNORE INTO user_ingredients(ingredient) VALUES(?)", (ingredient,))
+		self.c.execute("INSERT OR IGNORE INTO user_ingredients(ingredient) VALUES(?)", (ingredient.lower(),))
 		self.conn.commit()
 
 	def add_ingredients(self, ingredients):

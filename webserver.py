@@ -2,7 +2,7 @@ from bottle import route, run, request, template, static_file, get, post
 import main
 
 image_paths = {
-    "pancake":"pancake.jpg"
+    "pancake":"pancake.jpg",
 }
 
 def get_path(recipe_name):

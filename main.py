@@ -1,4 +1,5 @@
 import database
+import imagereader
 from bottle import route, run, template
 
 db = database.Database()
@@ -57,6 +58,9 @@ def compare_ingredients(recipe_ingredients, user_ingredients=None):
 # return a List of the user's Ingredients
 def get_ingredients():
 	return db.get_ingredients()
+
+def receipt-to-text(filename):
+	return imagereader.receipt-to-text(filename)
 	    
 # render main html file
 @route('/index/')

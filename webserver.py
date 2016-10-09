@@ -3,7 +3,7 @@ import main
 from database import Recipe
 
 image_paths = {
-    "pancake":"pancake.jpg",
+"apple pie" : "applePie.jpg" , "cheese burger" : "cheeseBurger.jpg" , "crepes" : "crepes.jpg" , "egg" : "egg.jpg" , "french fries" : "frenchFries.jpg" , "hamburger" : "hamBurger.jpg" , "ham sandwich" : "hamSandwich.jpg" , "kimchi" : "kimchi.jpg" , "mashed potatoes" : "mashedPotatoes.jpg" , "omelette" : "omelette.jpg" , "pancake" : "pancake.jpg" , "pizza" : "pizza.png" , "steak" : "steak.jpg" , "sushi" : "sushi.jpg" , "yogurt parfait" : "yogurtParfait.jpg","pancake":"pancake.jpg", "chicken" : "bakedChicken.jpg" , "beef stroganoff" : "beefStroganoff.jpg" , "blueberry pie" : "blueberrypie.jpg" , "chicken and dumplings" : "chickenandDumplings.jpg" , "chicken spaghetti" : "chickenSpaghetti.jpg" , "cinnamon buns" : "cinnamonBuns.jpg" , "cheese ball" : "cheeseBall.jpg" , "cupcake" : "cupcake.jpg" , "pork chop" : "porkChop.jpg" , "pork loin" : "porkLoin.jpg" , "pot roast" : "potRoast.jpg" , "pumpkin cheesecake" : "pumpkinCheesecake.jpg" , "salmon" : "salmon.jpg" , "shrimp dip" : "shrimpDip.jpg" , "shrimp scampi" : "shrimpScampi.jpg" , "tofu" : "tofu.jpg"
 }
 
 def get_path(recipe_name):
@@ -59,4 +59,4 @@ def modify_ingredient():
 
 
 if __name__ == '__main__':
-    run(host='127.0.0.1', port=8000, reloader=True, debug=True)
+    run(host='0.0.0.0', port=80)

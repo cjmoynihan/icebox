@@ -1,0 +1,25 @@
+Bottle v0.12.9 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:80/
+Hit Ctrl-C to quit.
+
+72.19.99.64 - - [09/Oct/2016 13:44:14] "GET / HTTP/1.1" 200 48449
+72.19.99.64 - - [09/Oct/2016 13:44:14] "GET /main.css HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:14] "GET /pancake.jpg HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:14] "GET /bakedChicken.jpg HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:14] "GET /generic_img.jpg HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:14] "GET /egg.jpg HTTP/1.1" 404 718
+72.19.99.64 - - [09/Oct/2016 13:44:14] "GET /crepes.jpg HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:14] "GET /font-awesome.min.css HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /jquery.min.js HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /jquery.dropotron.min.js HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /jquery.scrolly.min.js HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /skel.min.js HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /jquery.onvisible.min.js HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /pic06.jpg HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /util.js HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /main.js HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /header.png HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /fridgeclip2.png HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /receiptClip.png HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /magnifyingGlassClip.png HTTP/1.1" 304 0
+72.19.99.64 - - [09/Oct/2016 13:44:15] "GET /arrow.svg HTTP/1.1" 304 0

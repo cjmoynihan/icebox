@@ -40,13 +40,6 @@ def modify_ingredient():
             main.remove_ingredient(ingredient)
     return homepage()
 
-@route('/', method = 'POST')
-def print_recipes():
-    recipes = main.get_recipes()
-    for recipe in recipes:
-        name = recipe.name
-        ingredients = recipe.ingredients
-    return homepage()
 
 if __name__ == '__main__':
     run(host='127.0.0.1', port=8000, reloader=True, debug=True)

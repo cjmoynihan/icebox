@@ -57,5 +57,5 @@ class Database():
 
 	def add_recipe(self, recipe_name, ingredients, instructions):
 		# Add a recipe (name, ingredients as list) to recipes
-		self.c.execute("INSERT OR IGNORE INTO recipes(name, ingredients, instructions) VALUES(?,?,?)", (recipe_name, str(tuple(ingredients)), str(instructions)))
+		self.c.execute("INSERT OR IGNORE INTO recipes(name, ingredients, instructions) VALUES(?,?,?)", (recipe_name, str(tuple((ingredient.replace(',', '') for ingredient in ingredients))), str(instructions)))
 		self.conn.commit()

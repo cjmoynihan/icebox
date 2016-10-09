@@ -2505,11 +2505,12 @@
 
 		.carousel article {
 			display: inline-block;
+			vertical-align: top;
 			width: 18em;
-			height:36em;
+			height:23em;
 			background: #fff;
 			text-align: center;
-			padding: 0 1em 3em 1em;
+			padding: 0 1em 1em 1em;
 			margin: 0 2em 0 0;
 			white-space: normal;
 			opacity: 1.0;
@@ -2525,15 +2526,21 @@
 
 			.carousel article .image {
 				position: relative;
-				left: -1em;
-				top: 0;
-				width: auto;
+				padding: 1em 1em 1em 1em;
+				width: 16em;
 				margin-right: -2em;
-				margin-bottom: 3em;
+				margin-bottom: 0em;
 			}
-
+			.carousel article h3{
+				padding: 0 0 0 0;
+				margin: 0 0 0 0;
+				font-size:1em;
+				text-align: center;
+				vertical-align: top;
+			}
 			.carousel article p {
 				text-align: center;
+				font-size:0.8em;
 			}
 
 /* Wide */

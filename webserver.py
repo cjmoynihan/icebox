@@ -34,7 +34,7 @@ def fonts(filename):
 @route('/')
 def homepage():
     recipes = main.get_recipes()
-    recipes = [Recipe(recipe.name, (ingredient.strip("u'") for ingredient in recipe.ingredients), [instruction.strip("u'").strip("[u'").strip("']") for instruction in recipe.instructions.split(', ')]) for recipe in recipes]
+    recipes = [Recipe(recipe.name, [ingredient.strip("u'") for ingredient in recipe.ingredients], [instruction.strip("u'").strip("[u'").strip("']") for instruction in recipe.instructions.split(', ')]) for recipe in recipes]
     return template('index.tpl', ingredients=main.get_ingredients(), recipes=tuple(recipes), get_path=get_path)
 
 # Takes a POST and either adds or removes ingredients

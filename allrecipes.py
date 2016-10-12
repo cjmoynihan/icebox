@@ -67,6 +67,41 @@ def process_links(baselink):
         db.add_link(link)
         process_links(link)
 
+def try_some_links(num):
+    iterative_process_links(list(db.get_links())[:num])
+
+def iterative_process_links(links):
+    if isinstance(links, basestring):
+        links=set()
+        links.add(baselink)
+    else:
+        links=set(links)
+    while links:
+        # Take one link out of links
+        # Apply iter_helper, adding to db and getting back new links
+        # Get difference of new links and already added links
+        # Add new links to links
+        new_links = iter_helper(links.pop()).difference(db.get_links())
+        links.update(new_links)
+    
+def iter_helper(link):
+    # Processes a link, adding to db
+    # Returns all following links
+    print "Adding link " + link
+    if link.strip('/').split('/')[-2]=="photos":
+        # Just a photos link
+        db.add_link(link)
+        return set()
+    recipe = get_info(link)
+    # If no instructions, don't add to db
+    if recipe.instructions==[""] or recipe.instructions=="" or recipe.instructions=="[]" or recipe.instructions=="['']":
+        pass
+    else:
+        db.add_recipe(recipe.name, recipe.ingredients, recipe.instructions)
+    db.add_link(link)
+    return set(get_recipe_links(link))
+
 if __name__ == "__main__":
-    sys.setrecursionlimit(3000)
-    process_links(homepage)
+    try_some_links(10)
+#     sys.setrecursionlimit(3000)
+#     process_links(homepage)

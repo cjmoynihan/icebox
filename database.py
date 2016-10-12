@@ -9,6 +9,13 @@ class Recipe():
 	def __str__(self):
 		return "{0}: {1}".format(self.name, ', '.join(self.ingredients))
 
+        def check_ingredient(self, possible_ingredient):
+            # Determines whether ingredient is in ingredients
+            for ingredient in self.ingredients:
+                if possible_ingredient in ingredient:
+                    return True
+            return False
+
 class Database():
 	def __init__(self):
 		# Initialize the connection to the server
